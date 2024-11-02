@@ -1,0 +1,31 @@
+services:
+  database:
+    image: postgres:17-alpine
+    environment:
+      - POSTGRES_USER=arroyo
+      - POSTGRES_PASSWORD=arroyo
+      - POSTGRES_DB=arroyo
+    volumes:
+      - postgres-volume:/var/lib/postgresql/data
+
+  database-migrator:
+    image: ghcr.io/arroyosystems/arroyo:0.12.0
+    command: ["migrate"]
+    volumes:
+      - ./arroyo.toml:/app/arroyo.toml:ro
+    links:
+      - database
+
+  stream-processor:
+    image: ghcr.io/arroyosystems/arroyo:0.12.0
+    ports:
+      - 5115:5115
+    volumes:
+      - ./arroyo.toml:/app/arroyo.toml:ro
+    links:
+      - database
+    depends_on:
+      - database-migrator
+
+volumes:
+  postgres-volume:
