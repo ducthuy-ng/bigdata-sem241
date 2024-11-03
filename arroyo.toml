@@ -1,0 +1,5 @@
+[database]
+type = 'postgres'
+
+[database.postgres]
+host = 'database'

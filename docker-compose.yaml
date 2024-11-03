@@ -5,6 +5,8 @@ services:
       - POSTGRES_USER=arroyo
       - POSTGRES_PASSWORD=arroyo
       - POSTGRES_DB=arroyo
+    ports:
+      - 6543:5432
     volumes:
       - postgres-volume:/var/lib/postgresql/data
 

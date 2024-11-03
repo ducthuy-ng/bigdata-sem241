@@ -1,0 +1,18 @@
+@startuml system-diagram
+
+title Arroyo System Deployment
+
+left to right direction
+
+
+node "Raspberry Pi"{
+    component "<img:https://seeklogo.com/images/M/mastodon-logo-AAA76BE2CA-seeklogo.com.png{scale=0.2}>" as mastodon
+}
+
+node server as "Raspberry Pi" {
+    component "<img:https://raw.githubusercontent.com/ArroyoSystems/arroyo/refs/heads/master/images/arroyo_logo.png{scale=0.05}>" as arroyo
+}
+
+mastodon --> arroyo: Server-Side Event
+
+@enduml
