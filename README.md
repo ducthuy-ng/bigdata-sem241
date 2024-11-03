@@ -1,5 +1,7 @@
 # Big Data - Semester 241
 
+[Click here to visit our demo](http://ducthuy.com:5115/)
+
 ## Overview
 
 In this project, we will do a Mastodon post processing, to monitor the US 2024 voting trends, based on post mentioning of the candidates.
