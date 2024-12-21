@@ -4,7 +4,7 @@ CREATE TABLE mastodon (
 ) WITH (
     connector = 'sse',
     format = 'json',
-=    endpoint = 'http://mastodon.arroyo.dev/api/v1/streaming/public',
+    endpoint = 'http://mastodon.arroyo.dev/api/v1/streaming/public',
     events = 'update'
 );
 
