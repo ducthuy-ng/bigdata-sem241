@@ -9,7 +9,7 @@ services:
       - postgres-volume:/var/lib/postgresql/data
 
   database-migrator:
-    image: ghcr.io/arroyosystems/arroyo:0.12.0
+    image: ghcr.io/arroyosystems/arroyo:0.13.0
     command: ["migrate"]
     volumes:
       - ./arroyo.toml:/app/arroyo.toml:ro
@@ -17,7 +17,7 @@ services:
       - database
 
   stream-processor:
-    image: ghcr.io/arroyosystems/arroyo:0.12.0
+    image: ghcr.io/arroyosystems/arroyo:0.13.0
     ports:
       - 5115:5115
     volumes:

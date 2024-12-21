@@ -4,9 +4,10 @@ CREATE TABLE mastodon (
 ) WITH (
     connector = 'sse',
     format = 'json',
-=    endpoint = 'http://mastodon.arroyo.dev/api/v1/streaming/public',
+    endpoint = 'http://mastodon.arroyo.dev/api/v1/streaming/public',
     events = 'update'
 );
+
 
 WITH extract_domain AS (
     SELECT
@@ -19,7 +20,7 @@ WITH extract_domain AS (
 )
 , instance_domain_count AS (
     SELECT
-        TUMBLE(interval '5 minutes') AS window
+        TUMBLE(interval '15 seconds') AS window
         , instance_domain
         , COUNT(*) AS cnt
     FROM extract_domain
